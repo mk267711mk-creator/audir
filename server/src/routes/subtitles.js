@@ -120,9 +120,12 @@ router.get('/', async (req, res) => {
 
   const errors = [];
 
-  // Write YT_COOKIES env var to temp file for yt-dlp if provided
+  // Use cookies file for yt-dlp (Secret File on Render or YT_COOKIES env var)
   let cookiesFile = null;
-  if (process.env.YT_COOKIES) {
+  const secretFile = '/etc/secrets/yt-cookies.txt';
+  if (fs.existsSync(secretFile)) {
+    cookiesFile = secretFile;
+  } else if (process.env.YT_COOKIES) {
     cookiesFile = path.join(os.tmpdir(), `yt_cookies_${Date.now()}.txt`);
     fs.writeFileSync(cookiesFile, process.env.YT_COOKIES, 'utf-8');
   }
