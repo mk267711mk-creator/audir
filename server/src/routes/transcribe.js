@@ -54,17 +54,22 @@ function vttSec(t) {
 
 // GET /api/transcribe/check
 router.get('/check', async (req, res) => {
+  const results = {};
   try {
-    await execAsync('python3 -c "import whisper"');
-    res.json({ available: true });
-  } catch {
-    try {
-      await execAsync('python -c "import whisper"');
-      res.json({ available: true });
-    } catch {
-      res.json({ available: false });
-    }
+    const { stdout } = await execAsync('python3 -c "import whisper; print(\'ok\')"');
+    results.python3 = stdout.trim();
+    return res.json({ available: true, debug: results });
+  } catch (e) {
+    results.python3_error = e.message?.slice(0, 200);
   }
+  try {
+    const { stdout } = await execAsync('python -c "import whisper; print(\'ok\')"');
+    results.python = stdout.trim();
+    return res.json({ available: true, debug: results });
+  } catch (e) {
+    results.python_error = e.message?.slice(0, 200);
+  }
+  res.json({ available: false, debug: results });
 });
 
 // POST /api/transcribe — upload video, transcribe with Whisper
