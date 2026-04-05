@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+*.db
+server/data/
+server/uploads/
+client/android/
+*.apk
+.DS_Store

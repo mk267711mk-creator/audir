@@ -1,0 +1,112 @@
+export default {
+  // General
+  app_name: 'Audir',
+  tagline: 'Train your ear',
+
+  // Auth
+  login: 'Log In',
+  register: 'Sign Up',
+  logout: 'Log Out',
+  email: 'Email',
+  password: 'Password',
+  username: 'Username',
+  no_account: "Don't have an account?",
+  have_account: 'Already have an account?',
+
+  // Home / Video list
+  all_videos: 'All Videos',
+  add_youtube: 'Add YouTube Video',
+  upload_video: 'Upload Video',
+  no_videos: 'No videos yet. Add a YouTube link or upload your own!',
+  exercises_easy: 'Easy',
+  exercises_medium: 'Medium',
+  exercises_hard: 'Hard',
+  your_progress: 'Your progress',
+
+  // Add YouTube form
+  youtube_url: 'YouTube URL',
+  video_language: 'Video language',
+  video_title: 'Title (optional)',
+  add_video: 'Add Video',
+  adding: 'Adding...',
+
+  // Upload form
+  video_file: 'Video File',
+  subtitle_file: 'Subtitles',
+  upload: 'Upload',
+  uploading: 'Uploading...',
+  sub_manual: 'Attach .srt / .vtt file',
+  sub_manual_desc: 'If you already have a subtitle file for this video',
+  sub_extract: 'Extract embedded subtitles',
+  sub_extract_desc: 'For MKV/MP4 files with built-in subtitle tracks',
+  sub_extracting: 'Extracting...',
+  sub_extracted: 'Extracted {{count}} segments',
+  sub_whisper: 'Transcribe with Whisper AI',
+  sub_whisper_desc: 'For any video — AI listens and generates subtitles automatically',
+  sub_transcribing: 'Transcribing (may take a few minutes)...',
+  sub_transcribed: 'Transcribed {{count}} segments',
+
+  // Difficulty
+  difficulty: 'Difficulty',
+  easy: 'Easy',
+  medium: 'Medium',
+  hard: 'Hard',
+  easy_desc: 'Nouns & adjectives, pause before question',
+  medium_desc: 'Verbs & adjectives, short pause',
+  hard_desc: 'Any word, no pause',
+
+  // Player
+  loading_subtitles: 'Loading subtitles...',
+  tap_to_start: 'Tap to start',
+  your_score: 'Score',
+  correct: 'Correct!',
+  wrong: 'Wrong!',
+  right_answer: 'Right answer',
+  fill_blank: 'Fill in the blank:',
+  choose_answer: 'Choose the word you heard:',
+  xp_earned: '+{{xp}} XP',
+  next: 'Continue',
+  skip: 'Skip',
+  replay: 'Replay',
+  finish: 'Finish',
+  well_done: 'Well done!',
+  try_again: 'Try again',
+  show_translation: 'Show translation',
+  hide_translation: 'Hide translation',
+  translating: 'Translating...',
+
+  // Stats / Dashboard
+  dashboard: 'Dashboard',
+  total_xp: 'Total XP',
+  level: 'Level',
+  streak: 'Streak',
+  days: 'days',
+  badges: 'Badges',
+  recent_activity: 'Recent Activity',
+  accuracy: 'Accuracy',
+  completed: 'Completed',
+
+  // Badges
+  badge_first_100: 'First 100 XP',
+  badge_xp_1000: 'XP Champion',
+  badge_streak_3: '3-Day Streak',
+  badge_streak_7: 'Week Warrior',
+  badge_streak_30: 'Monthly Master',
+
+  // Levels
+  level_beginner: 'Beginner',
+  level_explorer: 'Explorer',
+  level_listener: 'Listener',
+  level_enthusiast: 'Enthusiast',
+  level_advanced: 'Advanced',
+  level_master: 'Master',
+
+  // Misc
+  cancel: 'Cancel',
+  save: 'Save',
+  back: 'Back',
+  loading: 'Loading...',
+  error: 'Error',
+  success: 'Success',
+  language: 'Language',
+};

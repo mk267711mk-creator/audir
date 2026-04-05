@@ -1,0 +1,14 @@
+Освободить порт:
+npx kill-port 3001
+
+Терминал 1 — сервер:
+
+cd C:\MyFolder\Vibecoding\audir\server
+node --experimental-sqlite src/index.js
+
+Терминал 2 — клиент:
+
+cd C:\MyFolder\Vibecoding\audir\client
+npm run dev
+
+Потом открывай http://localhost:5173
