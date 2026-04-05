@@ -55,10 +55,15 @@ function vttSec(t) {
 // GET /api/transcribe/check
 router.get('/check', async (req, res) => {
   try {
-    await execAsync('python -c "import whisper"');
+    await execAsync('python3 -c "import whisper"');
     res.json({ available: true });
   } catch {
-    res.json({ available: false });
+    try {
+      await execAsync('python -c "import whisper"');
+      res.json({ available: true });
+    } catch {
+      res.json({ available: false });
+    }
   }
 });
 
@@ -121,7 +126,8 @@ print("done")
 
     fs.writeFileSync(scriptPath, pyScript, 'utf-8');
 
-    await execAsync(`python "${scriptPath}"`, { timeout: 600000 });
+    const pythonBin = await execAsync('which python3').then(() => 'python3').catch(() => 'python');
+    await execAsync(`${pythonBin} "${scriptPath}"`, { timeout: 600000 });
 
     let vttContent = '';
     if (fs.existsSync(outVttPath)) {
