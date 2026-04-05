@@ -120,13 +120,21 @@ router.get('/', async (req, res) => {
 
   const errors = [];
 
+  // Write YT_COOKIES env var to temp file for yt-dlp if provided
+  let cookiesFile = null;
+  if (process.env.YT_COOKIES) {
+    cookiesFile = path.join(os.tmpdir(), `yt_cookies_${Date.now()}.txt`);
+    fs.writeFileSync(cookiesFile, process.env.YT_COOKIES, 'utf-8');
+  }
+  const cookiesArg = cookiesFile ? `--cookies "${cookiesFile}"` : '';
+
   // Helper: try to download subtitles for given lang codes, returns {segments, actualLang} or null
   async function tryDownload(langCodes, autoSubs) {
     const flag = autoSubs ? '--write-auto-subs' : '--write-subs';
     const subLangs = langCodes.join(',');
     try {
       await execAsync(
-        `yt-dlp --skip-download ${flag} --sub-langs "${subLangs}" --sub-format vtt --extractor-args "youtube:player_client=android,web" -o "${tmpBase}" "${url}"`,
+        `yt-dlp --skip-download ${flag} --sub-langs "${subLangs}" --sub-format vtt --extractor-args "youtube:player_client=android,web" ${cookiesArg} -o "${tmpBase}" "${url}"`,
         { timeout: 30000 }
       );
       const vttFile = findVttFile();
@@ -163,7 +171,7 @@ router.get('/', async (req, res) => {
   // Last resort: download whatever language is available
   try {
     await execAsync(
-      `yt-dlp --skip-download --write-auto-subs --sub-format vtt --extractor-args "youtube:player_client=android,web" -o "${tmpBase}" "${url}"`,
+      `yt-dlp --skip-download --write-auto-subs --sub-format vtt --extractor-args "youtube:player_client=android,web" ${cookiesArg} -o "${tmpBase}" "${url}"`,
       { timeout: 30000 }
     );
     const vttFile = findVttFile();
