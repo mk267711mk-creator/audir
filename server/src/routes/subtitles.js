@@ -4,6 +4,7 @@ import { promisify } from 'util';
 import os from 'os';
 import path from 'path';
 import fs from 'fs';
+import { YoutubeTranscript } from 'youtube-transcript/dist/youtube-transcript.esm.js';
 
 const execAsync = promisify(exec);
 const router = Router();
@@ -70,6 +71,34 @@ router.get('/', async (req, res) => {
 
   // Only allow safe lang codes
   const safeLang = String(lang).replace(/[^a-z-]/g, '').slice(0, 10) || 'en';
+
+  // Attempt 0: youtube-transcript library (works when yt-dlp is blocked by cloud IP)
+  try {
+    const transcript = await YoutubeTranscript.fetchTranscript(videoId, { lang: safeLang });
+    if (transcript && transcript.length) {
+      const segments = transcript.map(item => ({
+        start: item.offset / 1000,
+        duration: item.duration / 1000,
+        text: item.text.replace(/\n/g, ' ').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>'),
+      }));
+      return res.json({ segments, lang: safeLang });
+    }
+  } catch {}
+
+  // Fallback to en if requested lang failed
+  if (safeLang !== 'en') {
+    try {
+      const transcript = await YoutubeTranscript.fetchTranscript(videoId, { lang: 'en' });
+      if (transcript && transcript.length) {
+        const segments = transcript.map(item => ({
+          start: item.offset / 1000,
+          duration: item.duration / 1000,
+          text: item.text.replace(/\n/g, ' ').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>'),
+        }));
+        return res.json({ segments, lang: 'en', requestedLang: safeLang });
+      }
+    } catch {}
+  }
 
   const tmpDir = os.tmpdir();
   const tmpBase = path.join(tmpDir, `audir_${videoId}_${Date.now()}`);
