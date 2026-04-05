@@ -126,7 +126,7 @@ router.get('/', async (req, res) => {
     const subLangs = langCodes.join(',');
     try {
       await execAsync(
-        `yt-dlp --skip-download ${flag} --sub-langs "${subLangs}" --sub-format vtt -o "${tmpBase}" "${url}"`,
+        `yt-dlp --skip-download ${flag} --sub-langs "${subLangs}" --sub-format vtt --extractor-args "youtube:player_client=android,web" -o "${tmpBase}" "${url}"`,
         { timeout: 30000 }
       );
       const vttFile = findVttFile();
@@ -163,7 +163,7 @@ router.get('/', async (req, res) => {
   // Last resort: download whatever language is available
   try {
     await execAsync(
-      `yt-dlp --skip-download --write-auto-subs --sub-format vtt -o "${tmpBase}" "${url}"`,
+      `yt-dlp --skip-download --write-auto-subs --sub-format vtt --extractor-args "youtube:player_client=android,web" -o "${tmpBase}" "${url}"`,
       { timeout: 30000 }
     );
     const vttFile = findVttFile();
