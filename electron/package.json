@@ -1,0 +1,54 @@
+{
+  "name": "audir",
+  "version": "1.0.3",
+  "description": "English listening skills training app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac"
+  },
+  "devDependencies": {
+    "electron": "^32.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.audir.app",
+    "productName": "Audir",
+    "directories": {
+      "output": "../dist-electron"
+    },
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] }
+      ],
+      "extraResources": [
+        { "from": "resources/yt-dlp.exe", "to": "yt-dlp.exe" }
+      ]
+    },
+    "mac": {
+      "target": [
+        { "target": "dmg", "arch": ["x64", "arm64"] }
+      ],
+      "category": "public.app-category.education",
+      "extraResources": [
+        { "from": "resources/yt-dlp_mac", "to": "yt-dlp" }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Audir",
+      "include": "installer.nsh"
+    },
+    "extraResources": [
+      { "from": "../server", "to": "server" },
+      { "from": "../client/dist", "to": "client-dist" }
+    ],
+    "files": [
+      "main.js"
+    ]
+  }
+}
