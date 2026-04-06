@@ -24,6 +24,7 @@ jobs:
 
       - name: Download yt-dlp for Windows
         run: |
+          mkdir -p electron/resources
           curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe -o electron/resources/yt-dlp.exe
 
       - name: Build client
