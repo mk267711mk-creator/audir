@@ -60,7 +60,9 @@ jobs:
           chmod +x electron/resources/yt-dlp_mac
 
       - name: Build client
-        run: cd client && npm run build:electron
+        run: |
+          echo "VITE_BACKEND_URL=" > client/.env.electron
+          cd client && npm run build:electron
 
       - name: Build macOS installer
         run: cd electron && npm run build:mac
