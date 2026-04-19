@@ -5,11 +5,6 @@
   "scripts": {
     "dev:server": "cd server && npm run dev",
     "dev:client": "cd client && npm run dev",
-    "install:all": "cd server && npm install && cd ../client && npm install && cd ../electron && npm install",
-    "build:electron": "cd client && npm run build:electron",
-    "build:win": "cd client && npm run build:electron && cd ../electron && npm run build:win",
-    "desktop:install": "cd desktop/server && npm install && cd ../client && npm install && cd ../electron && npm install",
-    "desktop:build:win": "cd desktop/client && npm run build:electron && cd ../electron && npm run build:win",
-    "desktop:build:mac": "cd desktop/client && npm run build:electron && cd ../electron && npm run build:mac"
+    "install:all": "cd server && npm install && cd ../client && npm install"
   }
 }
