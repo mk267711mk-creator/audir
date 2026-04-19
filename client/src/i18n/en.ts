@@ -2,6 +2,8 @@ export default {
   // General
   app_name: 'Audir',
   tagline: 'Train your ear',
+  your_name: 'Your name',
+  start: 'Start',
 
   // Auth
   login: 'Log In',
@@ -16,7 +18,11 @@ export default {
   // Home / Video list
   all_videos: 'All Videos',
   add_youtube: 'Add YouTube Video',
+  add_youtube_short: 'YouTube',
   upload_video: 'Upload Video',
+  upload_video_short: 'Video',
+  upload_audio: 'Upload Audio',
+  upload_audio_short: 'Audio',
   no_videos: 'No videos yet. Add a YouTube link or upload your own!',
   exercises_easy: 'Easy',
   exercises_medium: 'Medium',
@@ -43,8 +49,13 @@ export default {
   sub_extracted: 'Extracted {{count}} segments',
   sub_whisper: 'Transcribe with Whisper AI',
   sub_whisper_desc: 'For any video — AI listens and generates subtitles automatically',
+  sub_whisper_audio_desc: 'For any audio file — AI listens and generates subtitles automatically',
   sub_transcribing: 'Transcribing (may take a few minutes)...',
   sub_transcribed: 'Transcribed {{count}} segments',
+  audio_file_hint: 'MP3, WAV, M4A, OGG, FLAC...',
+  audio_uploading: 'Uploading audio...',
+  audio_no_subtitles: 'Please provide subtitles or use AI transcription',
+  audio_whisper_hint: 'Attach a .srt or .vtt subtitle file for this audio',
 
   // Difficulty
   difficulty: 'Difficulty',
@@ -84,6 +95,7 @@ export default {
   badges: 'Badges',
   recent_activity: 'Recent Activity',
   accuracy: 'Accuracy',
+  tasks: 'tasks',
   completed: 'Completed',
 
   // Badges
@@ -100,6 +112,16 @@ export default {
   level_enthusiast: 'Enthusiast',
   level_advanced: 'Advanced',
   level_master: 'Master',
+
+  // About
+  about: 'About',
+  about_desc: 'A trainer for developing foreign language listening skills. Videos and audio play with subtitles, words are hidden — choose the correct option from several.',
+  about_features: 'Features',
+  about_feature_yt: 'YouTube videos with auto-subtitles',
+  about_feature_video: 'Video file upload (MP4, MKV, WebM)',
+  about_feature_audio: 'Audio file upload (MP3, WAV, M4A...)',
+  about_feature_whisper: 'Transcription via Whisper AI',
+  about_languages: 'Languages',
 
   // Misc
   cancel: 'Cancel',

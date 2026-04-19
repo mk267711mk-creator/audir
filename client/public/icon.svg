@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#6366f1"/>
+  <!-- Ear shape -->
+  <path d="M256 96c-88.4 0-160 71.6-160 160 0 55.2 28.2 103.8 70.8 132.4 8.6 5.8 13.2 15.8 11.6 26L168 464h32l9.6-48c2.8-14 13.6-24.8 27.4-27.4C296.6 378.2 336 326 336 264c0-17.6-14.4-32-32-32s-32 14.4-32 32c0 17.6-14.4 32-32 32s-32-14.4-32-32c0-53 43-96 96-96s96 43 96 96c0 36.4-20.4 68.2-50.4 84.8l16 27.6C395.6 354 416 311.2 416 264c0-88.4-71.6-160-160-160z" fill="white"/>
+  <!-- Sound waves -->
+  <path d="M340 180 Q380 220 380 264 Q380 308 340 348" stroke="white" stroke-width="16" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <path d="M364 156 Q416 210 416 264 Q416 318 364 372" stroke="white" stroke-width="12" fill="none" stroke-linecap="round" opacity="0.3"/>
+</svg>

@@ -2,6 +2,8 @@ export default {
   // General
   app_name: 'Audir',
   tagline: 'Тренуй слух',
+  your_name: 'Як тебе звати?',
+  start: 'Почати',
 
   // Auth
   login: 'Увійти',
@@ -16,7 +18,11 @@ export default {
   // Home / Video list
   all_videos: 'Всі відео',
   add_youtube: 'Додати YouTube відео',
+  add_youtube_short: 'YouTube',
   upload_video: 'Завантажити відео',
+  upload_video_short: 'Відео',
+  upload_audio: 'Завантажити аудіо',
+  upload_audio_short: 'Аудіо',
   no_videos: 'Немає відео. Додай посилання на YouTube або завантаж своє!',
   exercises_easy: 'Легкий',
   exercises_medium: 'Середній',
@@ -43,8 +49,13 @@ export default {
   sub_extracted: 'Витягнуто {{count}} сегментів',
   sub_whisper: 'Транскрипція через Whisper AI',
   sub_whisper_desc: 'Для будь-якого відео — ШІ слухає і генерує субтитри автоматично',
+  sub_whisper_audio_desc: 'Для будь-якого аудіофайлу — ШІ слухає і генерує субтитри автоматично',
   sub_transcribing: 'Транскрибую (може зайняти кілька хвилин)...',
   sub_transcribed: 'Транскрибовано {{count}} сегментів',
+  audio_file_hint: 'MP3, WAV, M4A, OGG, FLAC...',
+  audio_uploading: 'Завантажую аудіо...',
+  audio_no_subtitles: 'Прикріпи субтитри або використай транскрипцію ШІ',
+  audio_whisper_hint: 'Прикріпи файл .srt або .vtt із субтитрами до цього аудіо',
 
   // Difficulty
   difficulty: 'Рівень складності',
@@ -84,6 +95,7 @@ export default {
   badges: 'Значки',
   recent_activity: 'Остання активність',
   accuracy: 'Точність',
+  tasks: 'завдань',
   completed: 'Пройдено',
 
   // Badges
@@ -100,6 +112,16 @@ export default {
   level_enthusiast: 'Ентузіаст',
   level_advanced: 'Просунутий',
   level_master: 'Майстер',
+
+  // About
+  about: 'Про програму',
+  about_desc: 'Тренажер для розвитку навичок аудіювання іноземними мовами. Відео та аудіо відтворюються із субтитрами, слова приховуються — потрібно вибрати правильний варіант із кількох.',
+  about_features: 'Можливості',
+  about_feature_yt: 'YouTube відео з авто-субтитрами',
+  about_feature_video: 'Завантаження відеофайлів (MP4, MKV, WebM)',
+  about_feature_audio: 'Завантаження аудіофайлів (MP3, WAV, M4A...)',
+  about_feature_whisper: 'Транскрипція через Whisper AI',
+  about_languages: 'Мови',
 
   // Misc
   cancel: 'Скасувати',

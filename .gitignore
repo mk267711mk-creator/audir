@@ -7,3 +7,11 @@ server/uploads/
 client/android/
 *.apk
 .DS_Store
+dist-electron/
+.claude/
+desktop/server/data/
+desktop/server/uploads/
+electron/resources/yt-dlp.exe
+electron/resources/yt-dlp_mac
+desktop/electron/resources/yt-dlp.exe
+desktop/electron/resources/yt-dlp_mac

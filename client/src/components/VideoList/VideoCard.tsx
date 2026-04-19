@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Play, Youtube, Upload, CheckCircle, Trash2 } from 'lucide-react';
+import { Play, Youtube, Upload, CheckCircle, Trash2, Music } from 'lucide-react';
 import type { Video, Difficulty } from '../../types';
 import { deleteVideo, type VideoProgress } from '../../services/db';
 import clsx from 'clsx';
@@ -32,7 +32,10 @@ export default function VideoCard({ video, difficulty, onDelete }: Props) {
           <img src={video.thumbnail} alt={video.title} className="w-full h-full object-cover" />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
-            <Upload className="w-10 h-10 text-slate-500" />
+            {video.source === 'audio'
+              ? <Music className="w-10 h-10 text-purple-500" />
+              : <Upload className="w-10 h-10 text-slate-500" />
+            }
           </div>
         )}
         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
@@ -46,7 +49,9 @@ export default function VideoCard({ video, difficulty, onDelete }: Props) {
         <div className="absolute bottom-2 left-2">
           {video.source === 'youtube'
             ? <Youtube className="w-5 h-5 text-red-400" />
-            : <Upload className="w-5 h-5 text-blue-400" />}
+            : video.source === 'audio'
+              ? <Music className="w-5 h-5 text-purple-400" />
+              : <Upload className="w-5 h-5 text-blue-400" />}
         </div>
       </div>
 
@@ -57,7 +62,7 @@ export default function VideoCard({ video, difficulty, onDelete }: Props) {
           <span className={clsx('text-xs px-2 py-0.5 rounded-full border', difficultyColor[difficulty])}>
             {t(difficulty)}
           </span>
-          <span className="text-slate-400 text-xs">{totalEx} tasks</span>
+          <span className="text-slate-400 text-xs">{totalEx} {t('tasks')}</span>
         </div>
 
         {(video.total_exercises ?? 0) > 0 && (

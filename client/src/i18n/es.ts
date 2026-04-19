@@ -2,6 +2,8 @@ export default {
   // General
   app_name: 'Audir',
   tagline: 'Entrena tu oído',
+  your_name: '¿Cómo te llamas?',
+  start: 'Empezar',
 
   // Auth
   login: 'Iniciar sesión',
@@ -16,7 +18,11 @@ export default {
   // Home / Video list
   all_videos: 'Todos los videos',
   add_youtube: 'Agregar video de YouTube',
+  add_youtube_short: 'YouTube',
   upload_video: 'Subir video',
+  upload_video_short: 'Video',
+  upload_audio: 'Subir audio',
+  upload_audio_short: 'Audio',
   no_videos: 'Sin videos. ¡Agrega un enlace de YouTube o sube el tuyo!',
   exercises_easy: 'Fácil',
   exercises_medium: 'Medio',
@@ -43,8 +49,13 @@ export default {
   sub_extracted: '{{count}} segmentos extraídos',
   sub_whisper: 'Transcribir con Whisper AI',
   sub_whisper_desc: 'Para cualquier video — la IA escucha y genera subtítulos automáticamente',
+  sub_whisper_audio_desc: 'Para cualquier audio — la IA escucha y genera subtítulos automáticamente',
   sub_transcribing: 'Transcribiendo (puede tardar unos minutos)...',
   sub_transcribed: '{{count}} segmentos transcritos',
+  audio_file_hint: 'MP3, WAV, M4A, OGG, FLAC...',
+  audio_uploading: 'Subiendo audio...',
+  audio_no_subtitles: 'Adjunta subtítulos o usa la transcripción IA',
+  audio_whisper_hint: 'Adjunta un archivo .srt o .vtt con subtítulos para este audio',
 
   // Difficulty
   difficulty: 'Dificultad',
@@ -84,6 +95,7 @@ export default {
   badges: 'Insignias',
   recent_activity: 'Actividad reciente',
   accuracy: 'Precisión',
+  tasks: 'tareas',
   completed: 'Completado',
 
   // Badges
@@ -100,6 +112,16 @@ export default {
   level_enthusiast: 'Entusiasta',
   level_advanced: 'Avanzado',
   level_master: 'Maestro',
+
+  // About
+  about: 'Acerca de',
+  about_desc: 'Un entrenador para desarrollar habilidades de comprensión auditiva en idiomas extranjeros. Los videos y audios se reproducen con subtítulos, las palabras se ocultan — elige la opción correcta entre varias.',
+  about_features: 'Funciones',
+  about_feature_yt: 'Videos de YouTube con subtítulos automáticos',
+  about_feature_video: 'Subida de archivos de video (MP4, MKV, WebM)',
+  about_feature_audio: 'Subida de archivos de audio (MP3, WAV, M4A...)',
+  about_feature_whisper: 'Transcripción con Whisper AI',
+  about_languages: 'Idiomas',
 
   // Misc
   cancel: 'Cancelar',
